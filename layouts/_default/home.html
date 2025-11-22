@@ -12,6 +12,8 @@
 
   <!-- Featured Projects Section -->
   {{ $projects := where site.RegularPages "Section" "projects" }}
+  {{ $projects = where $projects "Params.featured" true }}
+  {{ $projects = $projects.ByParam "weight" }}
   {{ if $projects }}
   <section class="featured-section">
     {{ if site.Params.useProjectCarousel }}
