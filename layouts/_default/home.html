@@ -9,8 +9,59 @@
       </div>
     </div>
   </div>
+
+  <!-- Featured Projects Section -->
+  {{ $projects := where site.RegularPages "Section" "projects" }}
+  {{ if $projects }}
+  <section class="featured-section">
+    <h2 class="featured-title">FEATURED PROJECTS</h2>
+    <div class="featured-grid">
+      {{ range $projects }}
+      <article class="featured-card">
+        {{ $projectUrl := .RelPermalink }}
+        {{ $isExternal := false }}
+        {{ if .Params.project_url }}
+        {{ $projectUrl = .Params.project_url }}
+        {{ $isExternal = true }}
+        {{ end }}
+        <a href="{{ $projectUrl }}" {{ if $isExternal }}target="_blank" rel="noopener noreferrer" {{ end }}>
+          {{ if .Params.main_image }}
+          <div class="featured-image" style="background-image: url('{{ .Params.main_image }}');">
+            <div class="featured-overlay">
+              <h3 class="featured-card-title">
+                {{ .Title }}
+                {{ if $isExternal }}<span class="external-link-icon">↗</span>{{ end }}
+              </h3>
+            </div>
+          </div>
+          {{ else }}
+          <div class="featured-image featured-no-image">
+            <div class="featured-overlay">
+              <h3 class="featured-card-title">
+                {{ .Title }}
+                {{ if $isExternal }}<span class="external-link-icon">↗</span>{{ end }}
+              </h3>
+            </div>
+          </div>
+          {{ end }}
+          {{ if .Params.summary }}
+          <p class="featured-summary">{{ .Params.summary }}</p>
+          {{ end }}
+        </a>
+      </article>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+
+  <!-- Blog Posts List -->
+  {{ $posts := where site.RegularPages "Section" "posts" }}
+  {{ if $posts }}
+  <section class="posts-section">
+    <h2 class="featured-title">POSTS</h2>
+
     <ul class="home-list">
-      {{ range site.RegularPages}}
+      {{ range $posts }}
       <li class="home-list-div">
         <a href="{{ .RelPermalink }}" class="home-list-link">
           <span class="home-list-date">{{ .Date | time.Format ":date_medium" }}</span>
@@ -18,8 +69,9 @@
           <span class="home-list-duration">{{.ReadingTime }} min read</span>
         </a>
       </li>
-    
       {{ end }}
     </ul>
+  </section>
+  {{ end }}
 </div>
 {{ end }}

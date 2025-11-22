@@ -4,7 +4,7 @@
 {{ $dateHuman := .Date | time.Format ":date_long" }}
 
 <div align="center" class="date">
-  <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time> - 
+  <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time> -
   <span> {{.ReadingTime}} minute read</span> -
   {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
 </div>
@@ -15,7 +15,7 @@
   <img class="main-image" src="{{ .Params.main_image }}" alt="{{ .Title }}">
 </div>
 
-  <div class="content">
-    {{ .Content }}
-  </div>
+<div class="post-content">
+  {{ .Content }}
+</div>
 {{ end }}

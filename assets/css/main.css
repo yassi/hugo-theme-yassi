@@ -25,7 +25,7 @@ main {
 }
 
 .header-wrapper {
-  max-width: 1200px;  
+  max-width: 1200px;
 }
 
 footer {
@@ -42,7 +42,11 @@ a {
   margin-bottom: 2rem;
   margin-left: auto;
   margin-right: auto;
-  max-width: 720px;
+  max-width: 900px;
+}
+
+.post-content {
+  max-width: 700px;
 }
 
 .navbar {
@@ -116,7 +120,8 @@ a {
 }
 
 .home-list {
-    margin-top: 60px;
+  margin-top: 60px;
+  padding-left: 0;
 }
 
 
@@ -232,13 +237,123 @@ h2 {
 }
 
 .summary {
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1.5;
   margin-top: 20px;
-  color: #666;
+  color: darkgrey;
+  font-style: italic;
   max-width: 700px;
   margin: 0 auto 30px auto;
   border-left: 5px solid #47b1db;
   padding-left: 20px;
 
+}
+
+/* Featured Projects Section */
+.featured-section {
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.featured-title {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #666;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+/* Projects list page specific styling */
+.content h1 {
+  margin-bottom: 40px;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.featured-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  transition: transform 0.2s ease;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.featured-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.featured-image {
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+}
+
+.featured-no-image {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.featured-overlay {
+  width: 100%;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
+}
+
+.featured-card-title {
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.external-link-icon {
+  font-size: 16px;
+  margin-left: 6px;
+  opacity: 0.9;
+}
+
+.featured-summary {
+  padding: 15px;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  margin: 0;
+  background: white;
+}
+
+.featured-card a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.posts-section {
+  margin-top: 60px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .featured-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .featured-grid {
+    grid-template-columns: 1fr;
+  }
 }
