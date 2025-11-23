@@ -589,6 +589,11 @@ h2 {
 }
 
 /* Brand-specific hover colors */
+.social-link.github:hover {
+  background: #181717;
+  border-color: #181717;
+}
+
 .social-link.twitter:hover {
   background: #000000;
   border-color: #000000;
