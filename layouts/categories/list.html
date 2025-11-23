@@ -1,0 +1,29 @@
+{{ define "main" }}
+<div class="content">
+  <h1>{{ .Title }}</h1>
+  
+  {{ if .Content }}
+    {{ .Content }}
+  {{ end }}
+
+  <div class="tag-cloud">
+    {{ range .Data.Terms.ByCount }}
+      {{ $count := .Count }}
+      {{ $weight := 1 }}
+      {{ if ge $count 5 }}
+        {{ $weight = 5 }}
+      {{ else if ge $count 4 }}
+        {{ $weight = 4 }}
+      {{ else if ge $count 3 }}
+        {{ $weight = 3 }}
+      {{ else if ge $count 2 }}
+        {{ $weight = 2 }}
+      {{ end }}
+      <a href="{{ .Page.Permalink }}" class="tag-cloud-item tag-weight-{{ $weight }}" title="{{ .Count }} {{ if eq .Count 1 }}post{{ else }}posts{{ end }}">
+        {{ .Page.Title }}
+        <span class="tag-count">({{ .Count }})</span>
+      </a>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

@@ -712,6 +712,22 @@ h2 {
   font-weight: 700;
 }
 
+/* Term page (individual tag/category) */
+.term-description {
+  font-size: 1.1em;
+  color: var(--text-tertiary);
+  margin-bottom: 2em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.no-posts {
+  font-size: 1.1em;
+  color: var(--text-tertiary);
+  text-align: center;
+  padding: 3em 0;
+}
+
 /* Featured Projects Section */
 .featured-section {
   margin-top: 60px;

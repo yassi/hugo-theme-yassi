@@ -1,0 +1,26 @@
+{{ define "main" }}
+<div class="content">
+  <h1>{{ .Title }}</h1>
+  
+  <p class="term-description">
+    {{ .Params.description | default (printf "%d posts tagged with \"%s\"" (len .Pages) .Title) }}
+  </p>
+
+  <!-- Posts List -->
+  {{ if .Pages }}
+  <ul class="home-list">
+    {{ range .Pages }}
+    <li class="home-list-div">
+      <a href="{{ .RelPermalink }}" class="home-list-link">
+        <span class="home-list-date">{{ .Date | time.Format ":date_medium" }}</span>
+        <span class="home-list-title">{{ .LinkTitle }}</span>
+        <span class="home-list-duration">{{ .ReadingTime }} min read</span>
+      </a>
+    </li>
+    {{ end }}
+  </ul>
+  {{ else }}
+  <p class="no-posts">No posts found with this tag.</p>
+  {{ end }}
+</div>
+{{ end }}
