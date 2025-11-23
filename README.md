@@ -2,6 +2,8 @@
 
 A modern, minimal Hugo theme with a focus on readability and clean design. Features a timeline-style blog layout, dark mode support, and flexible project showcase options.
 
+example site: [yassi.dev](https://yassi.dev)
+
 ## Features
 
 ### Dark Mode
