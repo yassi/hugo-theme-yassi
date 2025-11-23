@@ -802,6 +802,7 @@ h2 {
   gap: 20px;
   transition: transform 0.4s ease;
   scroll-behavior: smooth;
+  padding-top: 10px;
 }
 
 .featured-carousel .featured-card {
@@ -890,13 +891,17 @@ h2 {
 /* Responsive */
 @media (max-width: 1024px) {
   .featured-grid {
-    grid-template-columns: repeat(2, 1fr);
+    /* grid-template-columns: repeat(2, 1fr); */
+    display: flex;
+    flex-direction: row;
   }
 
   .featured-carousel .featured-card {
-    flex: 0 0 calc(50% - 10px);
-    min-width: calc(50% - 10px);
+    /* flex: 0 0 calc(50% - 10px);
+    min-width: calc(50% - 10px); */
     scroll-snap-align: start;
+    width: 300px;
+    flex: 0 0 300px;
   }
 
   .carousel-controls {
@@ -1006,12 +1011,39 @@ h2 {
 
 @media (max-width: 640px) {
   .featured-grid {
-    grid-template-columns: 1fr;
+    /* grid-template-columns: 1.5fr; */
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+  }
+
+  .carousel-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .carousel-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .featured-carousel {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 10px;
+    transform: none !important;
   }
 
   .featured-carousel .featured-card {
-    flex: 0 0 calc(100% - 20px);
-    min-width: calc(100% - 20px);
+    width: 300px;
+    flex: 0 0 300px;
+  }
+
+  /* Hide carousel controls on small mobile */
+  .carousel-controls {
+    display: none;
   }
 
   /* Post typography adjustments for mobile */
