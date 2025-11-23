@@ -520,6 +520,71 @@ h2 {
   margin-top: 40px;
 }
 
+/* Social Media Links */
+.social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.social-link:hover {
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px var(--shadow-md);
+}
+
+.social-link svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Brand-specific hover colors */
+.social-link.twitter:hover {
+  background: #000000;
+  border-color: #000000;
+}
+
+.social-link.facebook:hover {
+  background: #1877F2;
+  border-color: #1877F2;
+}
+
+.social-link.linkedin:hover {
+  background: #0A66C2;
+  border-color: #0A66C2;
+}
+
+.social-link.instagram:hover {
+  background: linear-gradient(45deg, #F58529, #DD2A7B, #8134AF, #515BD4);
+  border-color: #E4405F;
+}
+
+.social-link.tiktok:hover {
+  background: #000000;
+  border-color: #000000;
+}
+
+.social-link.snapchat:hover {
+  background: #FFFC00;
+  border-color: #FFFC00;
+  color: #000000;
+}
+
 .summary {
   font-size: 18px;
   line-height: 1.5;
@@ -755,5 +820,20 @@ h2 {
 
   .post-article {
     padding: 0 15px;
+  }
+
+  .social-links {
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .social-link {
+    width: 40px;
+    height: 40px;
+  }
+
+  .social-link svg {
+    width: 18px;
+    height: 18px;
   }
 }
