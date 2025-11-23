@@ -1,2 +1,4 @@
 /exampleSite/public/
 /public/
+
+.hugo_build.lock
