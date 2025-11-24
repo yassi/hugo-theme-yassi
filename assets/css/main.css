@@ -977,6 +977,24 @@ h2 {
   margin-bottom: 40px;
 }
 
+/* Responsive grid for projects page */
+@media (max-width: 1024px) {
+  .featured-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .featured-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-card {
+    width: 70%;
+    margin: 0 auto;
+  }
+}
+
 .featured-card {
   position: relative;
   overflow: hidden;
@@ -1048,8 +1066,9 @@ h2 {
 
 /* Responsive */
 @media (max-width: 1024px) {
-  .featured-grid {
-    /* grid-template-columns: repeat(2, 1fr); */
+
+  /* Carousel-specific styles at tablet size */
+  .featured-carousel {
     display: flex;
     flex-direction: row;
   }
@@ -1168,13 +1187,8 @@ h2 {
 }
 
 @media (max-width: 640px) {
-  .featured-grid {
-    /* grid-template-columns: 1.5fr; */
-    display: flex;
-    flex-direction: row;
-    overflow: hidden;
-  }
 
+  /* Carousel-specific mobile styles */
   .carousel-container {
     overflow-x: auto;
     overflow-y: hidden;
