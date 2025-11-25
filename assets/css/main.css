@@ -343,6 +343,18 @@ a {
   font-weight: 500;
 }
 
+.home-list-project-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  background: var(--accent-color);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
 .home-list-duration::before {
   content: '';
   display: inline-block;

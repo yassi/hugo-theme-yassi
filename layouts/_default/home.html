@@ -196,6 +196,9 @@
           {{ end }}
           <div class="home-list-content">
             <div class="home-list-meta">
+              {{ if eq .Section "projects" }}
+              <span class="home-list-project-badge">PROJECT</span>
+              {{ end }}
               <span class="home-list-duration">{{.ReadingTime }} min read</span>
             </div>
             <h3 class="home-list-title">{{.LinkTitle}}</h3>
