@@ -53,6 +53,7 @@ Configure via `hugo.toml`:
 - Interactive dots that highlight on hover
 - Dates positioned on the left
 - Category badges for each post
+- **Optional project integration** - Show selected projects alongside posts with visual distinction
 - Clean, scannable design
 - Mobile-responsive with adapted layout
 
@@ -153,13 +154,23 @@ title = "Project Name"
 date = 2024-01-01
 summary = "Brief description of your project"
 main_image = "/images/project-cover.jpg"
-project_url = "https://external-project-url.com"  # optional
-featured = true  # Show in featured section
-weight = 1  # Order in featured section (lower = first)
+categories = ["category1"]  # optional
+tags = ["tag1", "tag2"]  # optional
+
+[params]
+  project_url = "https://external-project-url.com"  # optional, external link
+  featured = true  # Show in featured section on homepage
+  weight = 1  # Order in featured section (lower = first)
+  showInPostList = true  # Show in timeline lists alongside blog posts
 +++
 
 Project content here...
 ```
+
+**Project Display Options:**
+- `featured = true` - Project appears in the featured projects carousel/grid on homepage
+- `showInPostList = true` - Project appears in timeline post lists (homepage, category/tag pages) with a "PROJECT" badge to distinguish it from regular posts
+- Projects always appear on the `/projects/` page regardless of these settings
 
 ### Post Front Matter
 
@@ -247,6 +258,21 @@ Control which projects appear in the featured section:
 2. Use `weight` parameter to control order (1, 2, 3...)
 3. Projects without `featured = true` won't appear in the featured section
 4. All projects still appear on the `/projects/` page
+
+### Projects in Timeline Lists
+
+You can optionally display projects alongside blog posts in timeline views:
+
+1. Add `showInPostList = true` to the `[params]` section of a project's front matter
+2. The project will appear in:
+   - Homepage post timeline
+   - Category pages (for categories assigned to the project)
+   - Tag pages (for tags assigned to the project)
+   - RSS feeds
+3. Projects are visually distinguished with a "PROJECT" badge
+4. Timeline lists are sorted by date with newest items first
+
+This is useful for highlighting major projects as part of your content timeline while keeping them separate from regular blog posts.
 
 ### Dark Mode
 
