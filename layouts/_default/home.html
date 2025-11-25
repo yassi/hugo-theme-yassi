@@ -179,12 +179,15 @@
 
   <!-- Blog Posts List -->
   {{ $posts := where site.RegularPages "Section" "posts" }}
-  {{ if $posts }}
+  {{ $projectsInList := where (where site.RegularPages "Section" "projects") "Params.showInPostList" true }}
+  {{ $allPosts := union $posts $projectsInList }}
+  {{ $sortedPosts := $allPosts.ByDate.Reverse }}
+  {{ if $sortedPosts }}
   <section class="posts-section">
     <h2 class="featured-title">POSTS</h2>
 
     <ul class="home-list">
-      {{ range $posts }}
+      {{ range $sortedPosts }}
       <li class="home-list-div">
         <a href="{{ .RelPermalink }}" class="home-list-link">
           <span class="home-list-date">{{ .Date | time.Format ":date_medium" }}</span>

@@ -7,9 +7,13 @@
   </p>
 
   <!-- Posts List -->
-  {{ if .Pages }}
+  {{ $filteredPages := where .Pages "Section" "!=" "projects" }}
+  {{ $projectsInList := where (where .Pages "Section" "projects") "Params.showInPostList" true }}
+  {{ $allPages := union $filteredPages $projectsInList }}
+  {{ $sortedPages := $allPages.ByDate.Reverse }}
+  {{ if $sortedPages }}
   <ul class="home-list">
-    {{ range .Pages }}
+    {{ range $sortedPages }}
     <li class="home-list-div">
       <a href="{{ .RelPermalink }}" class="home-list-link">
         <span class="home-list-date">{{ .Date | time.Format ":date_medium" }}</span>
