@@ -2,6 +2,10 @@ baseURL = 'https://example.org/'
 languageCode = 'en-US'
 title = 'My New Hugo Site'
 
+[services]
+  [services.googleAnalytics]
+    ID = "G-XXXXXXXXXX"  # Your GA4 measurement ID
+
 [params]
   CoverImage = '/images/cover_image.png'
   

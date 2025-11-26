@@ -90,6 +90,11 @@ Each icon features brand-specific hover colors.
 - Touch-friendly interface elements
 - Optimized for tablets and desktop
 
+### Google Analytics Integration
+- Built-in Google Analytics 4 (GA4) support
+- Easy configuration with measurement ID
+- Uses Hugo's internal analytics template
+
 ### Navigation
 - Clean header with brand section
 - Responsive navigation menu
@@ -121,6 +126,10 @@ baseURL = "https://example.com/"
 languageCode = "en-us"
 title = "Your Site Title"
 theme = "yassi"
+
+[services]
+  [services.googleAnalytics]
+    ID = "G-XXXXXXXXXX"  # Your GA4 measurement ID
 
 [params]
   CoverImage = "/images/avatar.svg"  # or your own image
@@ -254,6 +263,21 @@ The theme supports Hugo's taxonomy system. Configure in `hugo.toml`:
   tag = "tags"
   category = "categories"
 ```
+
+### Google Analytics
+
+The theme includes built-in Google Analytics 4 support. To enable:
+
+1. Get your GA4 Measurement ID from Google Analytics (starts with `G-`)
+2. Add it to your `hugo.toml`:
+
+```toml
+[services]
+  [services.googleAnalytics]
+    ID = "G-XXXXXXXXXX"
+```
+
+The theme uses Hugo's internal Google Analytics template, which automatically includes the tracking script in production builds only (not when running `hugo server` locally).
 
 ## Features in Detail
 
