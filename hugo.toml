@@ -34,7 +34,8 @@ title = 'My New Hugo Site'
   #   reactionsEnabled = "1"  # Default: 1
   #   emitMetadata = "0"  # Default: 0
   #   inputPosition = "top"  # Default: top (options: top, bottom)
-  #   theme = "preferred_color_scheme"  # Default: preferred_color_scheme
+  #   lightTheme = "light"  # Theme for light mode (default: light)
+  #   darkTheme = "dark"  # Theme for dark mode (default: dark)
   #   lang = "en"  # Default: en
   #   loading = "lazy"  # Default: lazy
 

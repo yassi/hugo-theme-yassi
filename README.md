@@ -98,7 +98,8 @@ Each icon features brand-specific hover colors.
 ### Comments with Giscus
 - Optional comment system powered by GitHub Discussions
 - Lightweight and privacy-friendly
-- Automatically adapts to light/dark theme
+- Dynamically syncs with site's light/dark theme toggle
+- Instant theme switching without page reload
 - Fully configurable through hugo.toml
 - Easy on/off toggle
 
@@ -183,6 +184,8 @@ theme = "yassi"
     repoId = "R_xxxxxxxxxxxxx"
     category = "Announcements"
     categoryId = "DIC_xxxxxxxxxxxxx"
+    lightTheme = "light"
+    darkTheme = "dark"
 ```
 
 ### Project Front Matter
@@ -355,7 +358,8 @@ The theme supports [Giscus](https://giscus.app/), a comments system powered by G
   reactionsEnabled = "1"  # Enable reactions for the main post
   emitMetadata = "0"  # Emit discussion metadata
   inputPosition = "top"  # Comment box position (top or bottom)
-  theme = "preferred_color_scheme"  # Auto dark/light mode
+  lightTheme = "light"  # Theme for light mode
+  darkTheme = "dark"  # Theme for dark mode
   lang = "en"  # Language
   loading = "lazy"  # Lazy load comments
 ```
@@ -368,8 +372,13 @@ The theme supports [Giscus](https://giscus.app/), a comments system powered by G
 - `category` - The discussion category to use
 - `categoryId` - The category ID (get from giscus.app)
 - `mapping` - How URLs map to discussions (pathname, URL, title, etc.)
-- `theme` - Use "preferred_color_scheme" to auto-match your site's theme
+- `lightTheme` - Giscus theme for light mode (default: "light"). See [available themes](https://github.com/giscus/giscus/blob/main/ADVANCED-USAGE.md#data-theme)
+- `darkTheme` - Giscus theme for dark mode (default: "dark"). See [available themes](https://github.com/giscus/giscus/blob/main/ADVANCED-USAGE.md#data-theme)
 - All other parameters have sensible defaults and are optional
+
+**Dynamic Theme Switching:**
+
+The theme automatically synchronizes giscus comments with your site's light/dark mode toggle. When users switch between light and dark mode, the comments section will update instantly to match. You can customize the giscus themes used for each mode with the `lightTheme` and `darkTheme` parameters.
 
 Comments will appear at the bottom of all individual post and project pages. To disable comments, simply set `enabled = false` or remove the entire `[params.giscus]` section.
 

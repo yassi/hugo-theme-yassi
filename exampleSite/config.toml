@@ -35,6 +35,8 @@ buildFuture = true
   #   repoId = "R_xxxxxxxxxxxxx"
   #   category = "Announcements"
   #   categoryId = "DIC_xxxxxxxxxxxxx"
+  #   lightTheme = "light"  # Theme for light mode
+  #   darkTheme = "dark"  # Theme for dark mode
 
 [taxonomies]
   tag = "tags"
