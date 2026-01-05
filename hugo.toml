@@ -19,6 +19,24 @@ title = 'My New Hugo Site'
   # timelineStart = "🚀 And so it begins..."
   # timelineStartSubText = "Additional context or details..."
   # timelineStartDate = "Jan 2023"
+  
+  # Giscus Comments Configuration (optional)
+  # To enable comments, uncomment and set enabled = true
+  # Get your values from https://giscus.app/
+  # [params.giscus]
+  #   enabled = false
+  #   repo = "yourusername/your-comments-repo"
+  #   repoId = "R_xxxxxxxxxxxxx"
+  #   category = "Announcements"
+  #   categoryId = "DIC_xxxxxxxxxxxxx"
+  #   mapping = "pathname"  # Default: pathname
+  #   strict = "0"  # Default: 0
+  #   reactionsEnabled = "1"  # Default: 1
+  #   emitMetadata = "0"  # Default: 0
+  #   inputPosition = "top"  # Default: top (options: top, bottom)
+  #   theme = "preferred_color_scheme"  # Default: preferred_color_scheme
+  #   lang = "en"  # Default: en
+  #   loading = "lazy"  # Default: lazy
 
 [[menus.main]]
 name = 'Home'

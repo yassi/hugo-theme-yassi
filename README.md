@@ -95,6 +95,13 @@ Each icon features brand-specific hover colors.
 - Easy configuration with measurement ID
 - Uses Hugo's internal analytics template
 
+### Comments with Giscus
+- Optional comment system powered by GitHub Discussions
+- Lightweight and privacy-friendly
+- Automatically adapts to light/dark theme
+- Fully configurable through hugo.toml
+- Easy on/off toggle
+
 ### Search
 - Optional fuzzy search powered by Fuse.js
 - Search icon in navbar
@@ -168,6 +175,14 @@ theme = "yassi"
     instagram = "https://instagram.com/yourusername"
     tiktok = "https://tiktok.com/@yourusername"
     snapchat = "https://snapchat.com/add/yourusername"
+  
+  # Giscus Comments (optional)
+  [params.giscus]
+    enabled = true
+    repo = "yourusername/your-comments-repo"
+    repoId = "R_xxxxxxxxxxxxx"
+    category = "Announcements"
+    categoryId = "DIC_xxxxxxxxxxxxx"
 ```
 
 ### Project Front Matter
@@ -316,6 +331,47 @@ The theme includes built-in Google Analytics 4 support. To enable:
 ```
 
 The theme uses Hugo's internal Google Analytics template, which automatically includes the tracking script in production builds only (not when running `hugo server` locally).
+
+### Comments with Giscus
+
+The theme supports [Giscus](https://giscus.app/), a comments system powered by GitHub Discussions. Giscus is lightweight, privacy-friendly, and automatically adapts to your site's light/dark theme.
+
+**To enable Giscus comments:**
+
+1. Visit [giscus.app](https://giscus.app/) and follow the setup instructions
+2. Enable GitHub Discussions in your repository
+3. Install the Giscus app on your repository
+4. Configure the values in your `hugo.toml`:
+
+```toml
+[params.giscus]
+  enabled = true
+  repo = "yourusername/your-comments-repo"
+  repoId = "R_xxxxxxxxxxxxx"
+  category = "Announcements"
+  categoryId = "DIC_xxxxxxxxxxxxx"
+  mapping = "pathname"  # How to map pages to discussions
+  strict = "0"  # Use strict title matching
+  reactionsEnabled = "1"  # Enable reactions for the main post
+  emitMetadata = "0"  # Emit discussion metadata
+  inputPosition = "top"  # Comment box position (top or bottom)
+  theme = "preferred_color_scheme"  # Auto dark/light mode
+  lang = "en"  # Language
+  loading = "lazy"  # Lazy load comments
+```
+
+**Configuration Options:**
+
+- `enabled` - Set to `true` to enable comments, `false` to disable
+- `repo` - Your GitHub repository in the format "username/repo"
+- `repoId` - Your repository ID (get from giscus.app)
+- `category` - The discussion category to use
+- `categoryId` - The category ID (get from giscus.app)
+- `mapping` - How URLs map to discussions (pathname, URL, title, etc.)
+- `theme` - Use "preferred_color_scheme" to auto-match your site's theme
+- All other parameters have sensible defaults and are optional
+
+Comments will appear at the bottom of all individual post and project pages. To disable comments, simply set `enabled = false` or remove the entire `[params.giscus]` section.
 
 ## Features in Detail
 

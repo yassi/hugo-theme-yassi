@@ -25,6 +25,16 @@ buildFuture = true
     twitter = "https://twitter.com/yourusername"
     linkedin = "https://linkedin.com/in/yourusername"
     instagram = "https://instagram.com/yourusername"
+  
+  # Giscus Comments (optional)
+  # Uncomment and configure to enable comments
+  # Get your values from https://giscus.app/
+  # [params.giscus]
+  #   enabled = false
+  #   repo = "yourusername/your-comments-repo"
+  #   repoId = "R_xxxxxxxxxxxxx"
+  #   category = "Announcements"
+  #   categoryId = "DIC_xxxxxxxxxxxxx"
 
 [taxonomies]
   tag = "tags"

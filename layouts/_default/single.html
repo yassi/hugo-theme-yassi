@@ -33,5 +33,8 @@
   <div class="post-content">
     {{ .Content }}
   </div>
+
+  {{ partial "giscus.html" . }}
 </article>
+
 {{ end }}
