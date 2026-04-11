@@ -662,6 +662,26 @@ a {
   margin-bottom: 1em;
 }
 
+.post-aside {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--accent-color);
+  border-radius: 6px;
+  padding: 1em 1.5em;
+  margin: 2em 0;
+  font-size: 0.95em;
+  color: var(--text-tertiary);
+  line-height: 1.65;
+}
+
+.post-aside p {
+  margin-bottom: 0.5em;
+}
+
+.post-aside p:last-child {
+  margin-bottom: 0;
+}
+
 .post-content ul,
 .post-content ol {
   margin-bottom: 1.75em;
