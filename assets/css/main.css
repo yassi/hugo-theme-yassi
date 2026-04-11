@@ -649,7 +649,7 @@ a {
 }
 
 .post-content blockquote {
-  border-left: 4px solid var(--link-color);
+  border-left: 4px solid var(--accent-color);
   padding-left: 1.5em;
   margin: 2em 0;
   font-style: italic;
