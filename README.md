@@ -95,6 +95,11 @@ Each icon features brand-specific hover colors.
 - Easy configuration with measurement ID
 - Uses Hugo's internal analytics template
 
+### robots.txt
+- The theme includes [`layouts/robots.txt`](layouts/robots.txt): allows all crawlers (`User-agent: *`) and points to your sitemap via [`Sitemap`](https://gohugo.io/templates/robots/).
+- Turn on Hugo’s generator in your site config: `enableRobotsTXT = true`
+- Prefer a static file instead? Set `enableRobotsTXT = false` and add `static/robots.txt` yourself (Hugo copies it to the site root).
+
 ### Comments with Giscus
 - Optional comment system powered by GitHub Discussions
 - Lightweight and privacy-friendly

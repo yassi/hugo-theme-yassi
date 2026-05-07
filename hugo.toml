@@ -2,6 +2,9 @@ baseURL = 'https://example.org/'
 languageCode = 'en-US'
 title = 'My New Hugo Site'
 
+# Emit /robots.txt using layouts/robots.txt (theme default allows all crawlers + Sitemap).
+enableRobotsTXT = true
+
 [services]
   [services.googleAnalytics]
     ID = "G-XXXXXXXXXX"  # Your GA4 measurement ID

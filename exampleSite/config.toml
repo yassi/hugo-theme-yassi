@@ -4,6 +4,7 @@ title = "Yassi Theme Example"
 theme = "yassi"
 
 buildFuture = true
+enableRobotsTXT = true
 
 [params]
   CoverImage = "/images/avatar.svg"
