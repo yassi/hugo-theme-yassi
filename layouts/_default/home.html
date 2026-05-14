@@ -185,11 +185,28 @@
   {{ $sortedPosts := $allPosts.ByDate.Reverse }}
   {{ if $sortedPosts }}
   <section class="posts-section">
-    <h2 class="featured-title">POSTS</h2>
+    <div class="posts-section-header">
+      <h2 class="featured-title">POSTS</h2>
+      {{ if site.Params.enableTimelineFilter }}
+      {{ if eq site.Params.timelineFilterStyle "dropdown" }}
+      <select class="timeline-filter-select" aria-label="Filter posts">
+        <option value="all">All</option>
+        <option value="post">Posts</option>
+        <option value="project">Projects</option>
+      </select>
+      {{ else }}
+      <div class="timeline-filter" role="group" aria-label="Filter posts">
+        <button class="timeline-filter-btn active" data-filter="all">All</button>
+        <button class="timeline-filter-btn" data-filter="post">Posts</button>
+        <button class="timeline-filter-btn" data-filter="project">Projects</button>
+      </div>
+      {{ end }}
+      {{ end }}
+    </div>
 
     <ul class="home-list">
       {{ range $sortedPosts }}
-      <li class="home-list-div">
+      <li class="home-list-div" data-content-type="{{ if eq .Section "projects" }}project{{ else }}post{{ end }}">
         <a href="{{ .RelPermalink }}" class="home-list-link">
           <span class="home-list-date">{{ .Date | time.Format ":date_medium" }}</span>
           {{ if .Params.main_image }}

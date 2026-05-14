@@ -173,6 +173,10 @@ theme = "yassi"
   
   # Search
   enableSearch = true  # Enable site search with Fuse.js
+
+  # Timeline filter
+  enableTimelineFilter = false  # true to show All / Posts / Projects filter above the timeline
+  timelineFilterStyle = "pills"  # "pills" (default) or "dropdown"
   
   # Timeline Starting Point (optional)
   timelineStart = "🚀 And so it begins..."

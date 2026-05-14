@@ -56,6 +56,37 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+// Timeline filter
+document.addEventListener('DOMContentLoaded', function () {
+    const filterBtns = document.querySelectorAll('.timeline-filter-btn');
+    const filterSelect = document.querySelector('.timeline-filter-select');
+    if (!filterBtns.length && !filterSelect) return;
+
+    const listItems = document.querySelectorAll('.home-list-div[data-content-type]');
+
+    function applyFilter(filter) {
+        listItems.forEach(function (item) {
+            item.hidden = filter !== 'all' && item.dataset.contentType !== filter;
+        });
+    }
+
+    if (filterBtns.length) {
+        filterBtns.forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                filterBtns.forEach(function (b) { b.classList.remove('active'); });
+                btn.classList.add('active');
+                applyFilter(btn.dataset.filter);
+            });
+        });
+    }
+
+    if (filterSelect) {
+        filterSelect.addEventListener('change', function () {
+            applyFilter(filterSelect.value);
+        });
+    }
+});
+
 // Carousel functionality
 document.addEventListener('DOMContentLoaded', function () {
     const carousel = document.querySelector('.featured-carousel');

@@ -1210,6 +1210,73 @@ h2 {
   margin-right: auto;
 }
 
+.posts-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.posts-section-header .featured-title {
+  margin-bottom: 0;
+}
+
+.timeline-filter {
+  display: flex;
+  gap: 6px;
+}
+
+.timeline-filter-btn {
+  padding: 4px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border: 1.5px solid var(--border-color);
+  border-radius: 20px;
+  background: transparent;
+  color: var(--text-quaternary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.timeline-filter-btn:hover {
+  border-color: var(--link-color);
+  color: var(--link-color);
+}
+
+.timeline-filter-btn.active {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  color: #fff;
+}
+
+.timeline-filter-select {
+  padding: 4px 28px 4px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border: 1.5px solid var(--accent-color);
+  border-radius: 20px;
+  background-color: var(--accent-color);
+  color: #fff;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23fff' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  transition: filter 0.15s ease;
+}
+
+.timeline-filter-select:hover,
+.timeline-filter-select:focus {
+  filter: brightness(1.1);
+  outline: none;
+}
+
+.home-list-div[hidden] {
+  display: none;
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
 
