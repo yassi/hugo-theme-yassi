@@ -33,9 +33,14 @@ Choose between two display modes for your projects:
 **Carousel Mode** (default)
 - Horizontal scrolling carousel
 - Shows 3 projects at a time on desktop
-- Mobile-optimized with peek effect
-- Mouse drag and touch swipe support
+- Mobile-optimized with touch swipe support
 - Navigation buttons
+
+**Full-Width Carousel Mode**
+- Carousel breaks out of the content column and spans the full viewport width
+- Shows 4 projects at a time on desktop
+- Taller card images for a more cinematic feel
+- Falls back to touch swipe on mobile
 
 **Grid Mode**
 - 3-column grid on desktop
@@ -45,7 +50,8 @@ Choose between two display modes for your projects:
 Configure via `hugo.toml`:
 ```toml
 [params]
-  useProjectCarousel = true  # false for grid mode
+  useProjectCarousel = true          # false for grid mode
+  projectCarouselFullWidth = true    # full-viewport-width carousel (requires useProjectCarousel = true)
 ```
 
 ### Timeline Blog Layout
@@ -162,7 +168,8 @@ theme = "yassi"
   accentColorDark = "#5fc9f0"  # Lighter blue for dark mode
   
   # Project display mode
-  useProjectCarousel = true  # or false for grid
+  useProjectCarousel = true          # or false for grid
+  projectCarouselFullWidth = false   # true to break carousel out to full viewport width
   
   # Search
   enableSearch = true  # Enable site search with Fuse.js

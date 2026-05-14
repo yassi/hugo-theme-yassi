@@ -1082,10 +1082,37 @@ h2 {
   padding-top: 10px;
 }
 
+.featured-carousel--centered {
+  justify-content: center;
+}
+
 .featured-carousel .featured-card {
   flex: 0 0 calc(33.333% - 14px);
   min-width: calc(33.333% - 14px);
 }
+
+/* Full-width carousel breakout */
+.featured-section--full-width {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+  box-sizing: border-box;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.featured-section--full-width .featured-header--full-width {
+  max-width: 820px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.featured-section--full-width .featured-carousel--full-width .featured-card {
+  flex: 0 0 286px;
+  min-width: 286px;
+}
+
 
 /* Projects list page specific styling */
 
@@ -1208,6 +1235,18 @@ h2 {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
+  }
+
+  /* Full-width carousel collapses to 2 cards on tablet */
+  .featured-section--full-width {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .featured-section--full-width .featured-carousel--full-width .featured-card {
+    scroll-snap-align: start;
+    flex: 0 0 286px;
+    min-width: 286px;
   }
 }
 

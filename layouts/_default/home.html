@@ -84,18 +84,19 @@
   {{ $projects = where $projects "Params.featured" true }}
   {{ $projects = $projects.ByParam "weight" }}
   {{ if $projects }}
-  <section class="featured-section">
+  {{ $fullWidth := and site.Params.useProjectCarousel site.Params.projectCarouselFullWidth }}
+  <section class="featured-section{{ if $fullWidth }} featured-section--full-width{{ end }}">
     {{ if site.Params.useProjectCarousel }}
     <!-- Carousel Layout -->
-    <div class="featured-header">
+    <div class="featured-header{{ if $fullWidth }} featured-header--full-width{{ end }}">
       <h2 class="featured-title">FEATURED PROJECTS</h2>
       <div class="carousel-controls">
         <button class="carousel-btn carousel-btn-prev" aria-label="Previous">‹</button>
         <button class="carousel-btn carousel-btn-next" aria-label="Next">›</button>
       </div>
     </div>
-    <div class="carousel-container">
-      <div class="featured-carousel">
+    <div class="carousel-container{{ if $fullWidth }} carousel-container--full-width{{ end }}">
+      <div class="featured-carousel{{ if $fullWidth }} featured-carousel--full-width{{ end }}">
         {{ range $projects }}
         <article class="featured-card">
           {{ $projectUrl := .RelPermalink }}

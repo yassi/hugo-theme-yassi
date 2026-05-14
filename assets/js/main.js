@@ -68,15 +68,39 @@ document.addEventListener('DOMContentLoaded', function () {
     const cardCount = cards.length;
     let currentIndex = 0;
 
+    function getVisibleCardCount() {
+        if (cards.length === 0) return 1;
+        const containerWidth = carousel.parentElement.offsetWidth;
+        const cardWidth = cards[0].offsetWidth;
+        const gap = 20;
+        return Math.max(1, Math.round(containerWidth / (cardWidth + gap)));
+    }
+
+    const controls = prevBtn.closest('.carousel-controls');
+
     function updateCarousel() {
         const cardWidth = cards[0].offsetWidth;
         const gap = 20;
+        const totalCardsWidth = cardCount * cardWidth + (cardCount - 1) * gap;
+        const containerWidth = carousel.parentElement.offsetWidth;
+        const allFit = totalCardsWidth <= containerWidth;
+
+        carousel.classList.toggle('featured-carousel--centered', allFit);
+
+        if (allFit) {
+            carousel.style.transform = '';
+            if (controls) controls.style.visibility = 'hidden';
+            return;
+        }
+
+        if (controls) controls.style.visibility = '';
+
         const offset = currentIndex * (cardWidth + gap);
         carousel.style.transform = `translateX(-${offset}px)`;
 
-        // Update button states
+        const visibleCards = getVisibleCardCount();
         prevBtn.disabled = currentIndex === 0;
-        nextBtn.disabled = currentIndex >= cardCount - 3;
+        nextBtn.disabled = currentIndex >= cardCount - visibleCards;
     }
 
     prevBtn.addEventListener('click', function () {
@@ -87,14 +111,22 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     nextBtn.addEventListener('click', function () {
-        if (currentIndex < cardCount - 3) {
+        const visibleCards = getVisibleCardCount();
+        if (currentIndex < cardCount - visibleCards) {
             currentIndex++;
             updateCarousel();
         }
     });
 
     // Update on window resize
-    window.addEventListener('resize', updateCarousel);
+    window.addEventListener('resize', function () {
+        // Clamp index in case the window grew and we now show more cards
+        const visibleCards = getVisibleCardCount();
+        if (currentIndex > cardCount - visibleCards) {
+            currentIndex = Math.max(0, cardCount - visibleCards);
+        }
+        updateCarousel();
+    });
 
     // Initial state
     updateCarousel();
