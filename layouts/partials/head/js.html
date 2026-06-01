@@ -1,3 +1,8 @@
+<script>
+  window.yassiConfig = {
+    openExternalLinksInNewTab: {{ site.Params.openExternalLinksInNewTab | default true }}
+  };
+</script>
 {{- if site.Params.enableSearch }}
   {{- with resources.Get "js/fuse.min.js" }}
     {{- if eq hugo.Environment "development" }}

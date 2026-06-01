@@ -19,6 +19,9 @@ enableRobotsTXT = true
   
   # Project display mode: true for carousel, false for grid
   useProjectCarousel = true
+
+  # Open external links in a new tab (markdown body, social links, project cards)
+  openExternalLinksInNewTab = true
   
   # Social Media Links
   [params.social]

@@ -1,0 +1,3 @@
+{{- $external := .external | default false -}}
+{{- $enabled := site.Params.openExternalLinksInNewTab | default true -}}
+{{- if and $enabled $external }} target="_blank" rel="noopener noreferrer"{{- end -}}

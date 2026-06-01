@@ -14,7 +14,7 @@
       {{ $projectUrl = .Params.project_url }}
       {{ $isExternal = true }}
       {{ end }}
-      <a href="{{ $projectUrl }}" {{ if $isExternal }}target="_blank" rel="noopener noreferrer" {{ end }}>
+      <a href="{{ $projectUrl }}"{{ partial "external-link-attrs.html" (dict "external" $isExternal) | safeHTMLAttr }}>
         {{ if .Params.main_image }}
         <div class="featured-image" style="background-image: url('{{ .Params.main_image }}');">
           <div class="featured-overlay">

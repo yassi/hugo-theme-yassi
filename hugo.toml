@@ -17,6 +17,9 @@ enableRobotsTXT = true
   
   # Search
   enableSearch = false  # Enable/disable site search
+
+  # Open external links in a new tab (markdown body, social links, project cards)
+  openExternalLinksInNewTab = true
   
   # Timeline Starting Point (optional)
   # timelineStart = "🚀 And so it begins..."

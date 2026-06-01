@@ -1,0 +1,17 @@
+{{- $openInNewTab := site.Params.openExternalLinksInNewTab | default true -}}
+{{- $dest := .Destination -}}
+{{- $isExternal := false -}}
+
+{{- if $openInNewTab -}}
+  {{- if or (strings.HasPrefix $dest "http://") (strings.HasPrefix $dest "https://") -}}
+    {{- $siteHost := (urls.Parse site.BaseURL).Host -}}
+    {{- $linkHost := (urls.Parse $dest).Host -}}
+    {{- if and $linkHost (ne $linkHost $siteHost) -}}
+      {{- $isExternal = true -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+<a href="{{ .Destination | safeURL }}"{{- with .Title }} title="{{ . }}"{{ end -}}
+  {{- partial "external-link-attrs.html" (dict "external" $isExternal) | safeHTMLAttr -}}
+>{{ .Text | safeHTML }}</a>
